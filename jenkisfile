@@ -1,6 +1,7 @@
 
 pipeline {
     agent any
+
     triggers {
         githubPush()
     }
@@ -30,8 +31,13 @@ pipeline {
         success {
             echo 'Build stable'
         }
+
         failure {
             echo 'Build failed'
+        }
+
+        always {
+            echo 'Pipeline execution completed'
         }
     }
 }
